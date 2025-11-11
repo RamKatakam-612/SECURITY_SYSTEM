@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alerts History</title>
+
+<style>
+
+    body {
+        font-family: "Poppins", Arial, sans-serif;
+        background: #f4f7fb;
+        margin: 0;
+        padding: 40px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #222;
+        margin-bottom: 25px;
+    }
+
+    .table-container {
+        width: 95%;
+        max-width: 1000px;
+        margin: auto;
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 15px;
+    }
+
+    thead {
+        background: #0077ff;
+        color: #fff;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background: #eef6ff;
+    }
+
+    th {
+        font-weight: 600;
+    }
+
+    img {
+        width: 90px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+    }
+
+    .no-data {
+        text-align: center;
+        color: #777;
+        padding: 14px;
+    }
+
+    .back-btn {
+        text-decoration: none;
+        padding: 10px 18px;
+        background: #0077ff;
+        color: #fff;
+        border-radius: 6px;
+        font-size: 15px;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    .back-btn:hover {
+        background: #005fcc;
+    }
+
+</style>
+
+</head>
+<body>
+
+<a href="/" class="back-btn">⬅ Back Home</a>
+<h1>📜 Alerts History</h1>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Track ID</th>
+                <th>Duration</th>
+                <th>Snapshot</th>
+                <th>Detected At</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for alert in alerts %}
+            <tr>
+                <td>{{ alert.id }}</td>
+                <td>#{{ alert.track_id }}</td>
+                <td>{{ alert.duration }} sec</td>
+                <td>
+                    {% if alert.image %}
+                        <img src="{{ alert.image.url }}" alt="Alert Image">
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td>{{ alert.created_at|date:"Y-m-d H:i:s" }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="5" class="no-data">No alerts found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

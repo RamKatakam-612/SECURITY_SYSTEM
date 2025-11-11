@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security System | Home</title>
+
+  <style>
+    /* ---------- Global ---------- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px 50px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      width: 90%;
+      max-width: 400px;
+      padding: 12px 20px;
+      margin: 10px auto;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.25s;
+      display: block;
+    }
+
+    .btn-upload {
+      background: #00c6ff;
+      color: #fff;
+    }
+    .btn-upload:hover {
+      background: #0098cc;
+      transform: scale(1.1);
+    }
+
+    .btn-alerts {
+      background: #ffd300;
+      color: #000;
+    }
+    .btn-alerts:hover {
+      background: #d6b100;
+      transform: scale(1.1);
+    }
+
+    .btn-webcam {
+      background: #ff416c;
+      color: #fff;
+    }
+    .btn-webcam:hover {
+      background: #cc3458;
+      transform: scale(1.1);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 25px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🚨 Smart Security System</h1>
+    <p>Monitor live activity or analyze recordings.</p>
+
+    <!-- Upload + Detect -->
+    <a href="/upload-page/" style="text-decoration: none;">
+      <button class="btn btn-upload">📤 Upload & Detect Video</button>
+    </a>
+
+    <!-- Alerts -->
+    <a href="/alerts/" style="text-decoration: none;">
+      <button class="btn btn-alerts">📜 View Alerts History</button>
+    </a>
+
+    <!-- Webcam → ROI Page -->
+    <a href="/upload-page/?webcam=1" style="text-decoration: none;">
+      <button class="btn btn-webcam">🎥 Live Webcam Detection</button>
+    </a>
+
+    <footer>© 2025 Smart Security System</footer>
+  </div>
+
+</body>
+</html>

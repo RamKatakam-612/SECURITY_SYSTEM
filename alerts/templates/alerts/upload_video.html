@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Upload & Detect</title>
+
+<style>
+    body {
+        font-family: "Poppins", Arial, sans-serif;
+        background: #f4f7fb;
+        margin: 0;
+        padding: 35px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #1c1c1c;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        margin-top: 30px;
+        color: #333;
+    }
+
+    .card {
+        background: #fff;
+        margin: auto;
+        padding: 25px;
+        width: 90%;
+        max-width: 850px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+
+    #uploadForm {
+        margin-bottom: 20px;
+    }
+
+    input[type="file"] {
+        padding: 10px;
+        border: 1px solid #bbb;
+        border-radius: 6px;
+        background: #fff;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        background: #0077ff;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin: 8px;
+    }
+
+    .btn:hover {
+        background: #005fcc;
+    }
+
+    #frameCanvas {
+        margin-top: 20px;
+        border-radius: 8px;
+        border: 2px dashed #0077ff;
+        background: #fff;
+        cursor: crosshair;
+    }
+
+    .back-btn {
+        background: #444;
+    }
+
+    .back-btn:hover {
+        background: #000;
+    }
+
+    hr {
+        width: 80%;
+        margin: 30px auto;
+    }
+
+</style>
+
+</head>
+
+<body>
+
+    <h1>🎥 Upload Video & Select ROI</h1>
+
+    <div class="card">
+
+        <!-- Upload Form -->
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="videoFile" name="video" accept="video/*" required>
+            <button class="btn" type="submit">Upload</button>
+        </form>
+
+        <button class="btn" id="useWebcam">Use Webcam</button>
+
+        <hr>
+
+        <h2>📐 Draw Region of Interest (ROI)</h2>
+        <p>Click multiple points over the video to form a polygon</p>
+
+        <canvas id="frameCanvas" width="640" height="480"></canvas>
+
+        <br>
+        <button class="btn" id="startDetection" disabled>▶ Start Detection</button>
+
+        <br><br>
+        <a href="/alerts"><button class="btn">📜 View Alerts</button></a>
+        <a href="/"><button class="btn back-btn">🏠 Home</button></a>
+
+    </div>
+
+    <script src="{% static 'alerts/roi.js' %}?v=10"></script>
+
+</body>
+</html>

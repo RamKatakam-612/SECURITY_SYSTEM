@@ -1,0 +1,14 @@
+Django
+asgiref
+djangorestframework
+models
+norfair
+numpy
+opencv-python
+pytz
+requests
+serializers
+services
+twilio
+ultralytics
+views
